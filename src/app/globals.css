@@ -31,9 +31,13 @@ ol[role="list"] {
 
 /* Set core root defaults */
 html:focus-within {
+  --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
 }
-
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
 /* Set core body defaults */
 body {
   min-height: 100vh;

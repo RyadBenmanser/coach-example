@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Services = () => {
@@ -33,6 +34,7 @@ const Services = () => {
   ];
   return (
     <div className="p-[3%]">
+      <h1 className="text-4xl text-center py-12">Nous nous occupons de ...</h1>
       <div className="container mx-auto grid justify-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {menuTab.map(({ title, description, image }, index) => {
           return (
@@ -40,7 +42,9 @@ const Services = () => {
               key={index}
               className="flex flex-col items-center bg-white rounded-lg shadow-lg"
             >
-              <img
+              <Image
+                width={400}
+                height={400}
                 src={image}
                 alt={title}
                 className="object-cover w-full h-80 rounded-t-lg"

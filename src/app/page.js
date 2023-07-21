@@ -1,11 +1,12 @@
 import Hero from "@/components/Hero";
 import Main from "@/components/Main/Main";
-import Price from "@/components/Main/Price";
+import Price from "@/components/Price";
 import Mapping from "@/components/Mapping";
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import Services from "@/components/Services";
 import dynamic from "next/dynamic";
+import Contact from "@/components/Contact";
 const Geolocation = dynamic(() => import("@/components/Geolocation"), {
   ssr: false,
 });
@@ -14,22 +15,33 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <Section />
+      <div id="home">
+        <Hero />
+        <Section />
+      </div>
       <br />
       <br />
-      <Services />
+      <div id="services">
+        <Services />
+      </div>
       <br />
       <br />
       <Main />
       <br />
       <br />
-      <Geolocation />
+      <div id="map">
+        <Geolocation />
+      </div>
       <br />
       <br />
       <br />
-      <Price />
+      <div id="price">
+        <Price />
+      </div>
       <br />
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
 }

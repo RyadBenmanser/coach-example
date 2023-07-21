@@ -9,9 +9,9 @@ const Navbar = () => {
   const router = useRouter();
   const menu = [
     { name: "Home", url: "#home" },
-    { name: "About", url: "#about" },
     { name: "Services", url: "#services" },
-    { name: "Gallery", url: "#gallery" },
+    { name: "Map", url: "#map" },
+    { name: "Tarif", url: "#price" },
     { name: "Contact", url: "#contact" },
   ];
   useEffect(() => {

@@ -13,6 +13,7 @@ import {
   TileLayer,
   Tooltip,
 } from "react-leaflet";
+import Link from "next/link";
 function toRad(degrees) {
   return (degrees * Math.PI) / 180;
 }
@@ -67,8 +68,9 @@ const Mapping = ({ position2 }) => {
     <div>
       <MapContainer
         center={center}
+        scrollWheelZoom={false}
         zoom={13}
-        style={{ width: "100%", height: "400px" }}
+        style={{ width: "75%", height: "500px", margin: "0 auto" }}
       >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -76,7 +78,13 @@ const Mapping = ({ position2 }) => {
         />
         <Marker position={position1}>
           <Popup>
-            <FaMapMarkerAlt />
+            <Link
+              href={
+                "https://www.google.com/maps/place/Ecole+Blaise+Pascal/@33.9532878,-6.8264537,17z/data=!3m1!4b1!4m6!3m5!1s0xda714b007a30ce7:0xf7e2cb27ca971b88!8m2!3d33.9532834!4d-6.8238788!16s%2Fg%2F1tj1nwjk?entry=ttu"
+              }
+            >
+              Ouvrir sur google map
+            </Link>
           </Popup>
         </Marker>
         {position2[0] && (
@@ -85,11 +93,21 @@ const Mapping = ({ position2 }) => {
           </Marker>
         )}
         <Circle center={center} fillColor="blue" radius={500}>
-          <Tooltip>Circle Tooltip</Tooltip>
+          <Popup>
+            <Link
+              href={
+                "https://www.google.com/maps/place/Ecole+Blaise+Pascal/@33.9532878,-6.8264537,17z/data=!3m1!4b1!4m6!3m5!1s0xda714b007a30ce7:0xf7e2cb27ca971b88!8m2!3d33.9532834!4d-6.8238788!16s%2Fg%2F1tj1nwjk?entry=ttu"
+              }
+            >
+              Ouvrir sur google map
+            </Link>
+          </Popup>
         </Circle>
-        <Polyline pathOptions={limeOptions} positions={polyline}>
-          <Tooltip>{distance + (distance < 1 ? " meters" : " km")}</Tooltip>
-        </Polyline>
+        {position2[0] && (
+          <Polyline pathOptions={limeOptions} positions={polyline}>
+            <Tooltip>{distance + (distance < 1 ? " meters" : " km")}</Tooltip>
+          </Polyline>
+        )}
       </MapContainer>
     </div>
   );
